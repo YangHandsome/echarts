@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+<body>  
+    <div id="main" style="width:600px;height:400px;"></div>
+    <script src="js/zepto.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'),'dark');
+        var adddata = 10;
+        var option;
+        myChart.showLoading();
+        $(document).on("click",function(){
+            adddata+=50;
+            option ={
+            title:{
+                text:'ECharts 入门'
+            },
+            tooltip:{},
+            legend:{
+                data:['销量']
+            },
+            xAxis:{
+                data:["衬衫","羊毛衫","羊毛衫1","羊毛衫2","羊毛衫3","羊毛衫4"]
+            },
+            yAxis:{
+
+            },
+            series:[
+                {
+                    name:'销量',
+                    type:'bar',
+                    data:[adddata,20+adddata,90+adddata,10+adddata,10+adddata,20+adddata]
+                }
+            ]
+        }
+            myChart.setOption(option);
+            myChart.hideLoading();
+            
+        })
+        console.log(11)
+    </script>
+</body>
+</html>
